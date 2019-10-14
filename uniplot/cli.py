@@ -2,11 +2,12 @@ import argparse
 from . import parse
 from . import analysis
 from . import plot
-LOC="uniprot_receptor.xml.gz"
+#LOC="uniprot_receptor.xml.gz"
 smallLOC = "./resources/uniprot_sprot_small.xml.gz"
 def cli():
     """command line interface"""
     parser = argparse.ArgumentParser(prog="uniplot")
+    parser.add_argument("--directory")
     subparsers = parser.add_subparsers(help="""
     Command Line Arguments:
     
@@ -25,9 +26,9 @@ def cli():
     subparsers.add_parser("average").set_defaults(func=average)
     subparsers.add_parser("small").set_defaults(func=small)
     subparsers.add_parser("plot").set_defaults(func=plot_average_by_taxa)
-    subparsers.add_parser("dir").add_argument()
-
     args = parser.parse_args()
+    global LOC
+    LOC = args.directory
     args.func()
 def names():
     """prints the names of every protein"""
@@ -41,6 +42,7 @@ def average():
     """prints the average length of every protein"""
     print("Average length is: " + str(round(analysis.average_len(parse.uniprot_seqrecords(LOC)))))
 def small():
+    print("LOC: ", LOC)
     """prints the average length of every protein in the smaller uniprot file"""
     print("Average small length is: " + str(round(analysis.average_len(parse.uniprot_seqrecords(smallLOC)))))
 def plot_average_by_taxa():

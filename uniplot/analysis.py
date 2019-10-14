@@ -3,7 +3,7 @@ def average_len(records):
     totalLength = 0
     for record in records:
         totalLength += len(record)
-    return totalLength / len(records)
+    return round(totalLength / len(records))
 def average_len_taxa(records):
     """Returns the average length for the top level taxa"""
     record_by_taxa = {}
