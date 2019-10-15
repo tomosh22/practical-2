@@ -5,7 +5,7 @@ This package allows analysis and display of proteins from Uniprot.
 
 Usage
 ====================
-pipenv run python uniplot.py [--directory "/example/directory"] dump/list/average/small/plot
+pipenv run python uniplot.py [--depth depth] [--directory "/example/directory"] dump/list/average/small/plot/plotpie
 
 
 Command Line Arguments
@@ -32,6 +32,8 @@ prints the average length of every protein in the smaller uniprot file
 
 **plot**
 
-plots a graph of frequency against taxa for every protein in the large uniprot file
+plots a graph of frequency against taxa for every protein
 
+**plotpie**
 
+plots a pie chart showing the proportion of different taxa
