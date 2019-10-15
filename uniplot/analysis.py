@@ -10,9 +10,8 @@ def average_len_taxa(records,depth):
     """Returns the average length for each taxa, down to passed depth"""
     record_by_taxa = {}
     for r in records:
-        print(r)
         for x in range(depth):
-            taxa = r.annotations["taxonomy"][x]
+            taxa = r["taxonomy"][x]
             record_by_taxa.setdefault(taxa, []).append(r)
         #taxa = r.annotations["taxonomy"][0]
         #record_by_taxa.setdefault(taxa, []).append(r)

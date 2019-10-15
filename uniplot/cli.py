@@ -27,11 +27,12 @@ def cli():
     subparsers.add_parser("average").set_defaults(func=average)
     subparsers.add_parser("small").set_defaults(func=small)
     subparsers.add_parser("plot").set_defaults(func=plot_average_by_taxa)
+    subparsers.add_parser("plotpie").set_defaults(func=plot_average_by_taxa_pie)
     args = parser.parse_args()
     global LOC
     if args.directory:
         LOC = args.directory
-    if args.func == plot_average_by_taxa:
+    if args.func == plot_average_by_taxa or args.func == plot_average_by_taxa_pie:
         args.func(int(args.depth))
     else:
         args.func()
@@ -54,3 +55,7 @@ def plot_average_by_taxa(depth):
     """plots a graph of frequency against taxa for every protein"""
     av = analysis.average_len_taxa(parse.uniprot_seqrecords(LOC),depth)
     plot.plot_bar_show(av)
+def plot_average_by_taxa_pie(depth):
+    """plots a graph of frequency against taxa for every protein"""
+    av = analysis.average_len_taxa(parse.uniprot_seqrecords(LOC),depth)
+    plot.plot_pie_show(av)

@@ -7,6 +7,6 @@ def uniprot_seqrecords(file_location):
 
     handle = gzip.open(file_location)
     for record in SeqIO.parse(handle, "uniprot-xml"):
-        records.append(record)
-
+        records.append({"length":len(record),"taxonomy":record.annotations["taxonomy"]})
+    handle.close()
     return records
