@@ -2,7 +2,7 @@ def average_len(records):
     """Returns the average len for records."""
     totalLength = 0
     for record in records:
-        totalLength += len(record)
+        totalLength += record["length"]
     return round(totalLength / len(records))
 
 

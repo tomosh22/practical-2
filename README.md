@@ -14,6 +14,10 @@ Command Line Arguments
 
 allows the user to pass in the path to a custom uniplot file
 
+**--depth**
+
+allows the user to specify how many taxa down to go
+
 **dump**
 
 prints all information about every protein
