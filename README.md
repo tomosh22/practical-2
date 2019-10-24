@@ -10,6 +10,9 @@ pipenv run python uniplot.py [--depth depth] [--directory "/example/directory"] 
 
 Command Line Arguments
 ====================
+
+NOTE: --directory and/or --depth must come before any other arguments
+
 **--directory**
 
 allows the user to pass in the path to a custom uniplot file
